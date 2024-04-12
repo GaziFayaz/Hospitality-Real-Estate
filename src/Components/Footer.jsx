@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
 	return (
-		<footer className="footer p-10 bg-[#67C6E3] border-t-slate-950 border-2 text-base-content px-24">
+		<footer className="footer p-10 bg-[#67C6E3] border-t-slate-950 border-2 text-base-content px-24 ">
 			<form>
 				<h6 className="footer-title">About Us</h6>
 				<p className="w-80 text-justify">

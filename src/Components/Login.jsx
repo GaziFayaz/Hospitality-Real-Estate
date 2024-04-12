@@ -16,6 +16,7 @@ const Login = () => {
 						name="email"
 						id="email"
 						placeholder="Your Email"
+            required
 						className="border-b-2 border-gray-400 w-full p-2 rounded-xl"
 					/>
 				</div>
@@ -26,6 +27,7 @@ const Login = () => {
 						name="password"
 						id="password"
 						placeholder="Your Password"
+            required
 						className="border-b-2 border-gray-400 w-full p-2 rounded-xl"
 					/>
 					<a className="text-sm text-gray-300 self-end link-hover mt-1">
