@@ -1,0 +1,110 @@
+[
+	{
+		"image": "https://i.ibb.co/pZ1L29Q/hotel1.jpg",
+		"estate_title": "Luxury Beachfront Resort",
+		"id": "001",
+		"segment_name": "Resort",
+		"description": "Experience ultimate relaxation at our beachfront resort, offering stunning ocean views, gourmet dining, and world-class amenities.",
+		"price": "$500,000",
+		"status": "sale",
+		"area": "10,000 sq ft",
+		"location": "Malibu, California",
+		"facilities": ["Oceanfront views", "Spa", "Fine dining"]
+	},
+	{
+		"image": "https://i.ibb.co/0V8SHG9/hotel2.jpg",
+		"estate_title": "Charming Mountain Lodge",
+		"id": "002",
+		"segment_name": "Lodge",
+		"description": "Escape to the tranquility of the mountains in our cozy lodge, featuring rustic decor, crackling fireplaces, and breathtaking scenery.",
+		"price": "$300,000",
+		"status": "sale",
+		"area": "5,000 sq ft",
+		"location": "Aspen, Colorado",
+		"facilities": ["Fireplace", "Mountain views", "Hiking trails"]
+	},
+	{
+		"image": "https://i.ibb.co/2spdtk0/hotel3.jpg",
+		"estate_title": "Urban Boutique Hotel",
+		"id": "003",
+		"segment_name": "Hotel",
+		"description": "Immerse yourself in city life at our stylish boutique hotel, offering chic accommodations, rooftop bar, and vibrant nightlife.",
+		"price": "$700,000",
+		"status": "sale",
+		"area": "8,000 sq ft",
+		"location": "New York City, New York",
+		"facilities": ["Rooftop bar", "City views", "Fitness center"]
+	},
+	{
+		"image": "https://i.ibb.co/p28qBN4/hotel4.jpg",
+		"estate_title": "Seaside Vacation Rental",
+		"id": "004",
+		"segment_name": "Vacation Rental",
+		"description": "Create lasting memories by the sea in our charming vacation rental, featuring spacious rooms, private beach access, and coastal charm.",
+		"price": "$200/night",
+		"status": "rent",
+		"area": "2,500 sq ft",
+		"location": "Maui, Hawaii",
+		"facilities": ["Private beach access", "Outdoor patio", "BBQ area"]
+	},
+	{
+		"image": "https://i.ibb.co/mRwvYpN/hotel5.jpg",
+		"estate_title": "Cozy Guesthouse Retreat",
+		"id": "005",
+		"segment_name": "Guesthouse",
+		"description": "Find serenity in our intimate guesthouse retreat, offering personalized service, lush gardens, and a tranquil atmosphere.",
+		"price": "$150,000",
+		"status": "sale",
+		"area": "3,000 sq ft",
+		"location": "Sedona, Arizona",
+		"facilities": ["Garden views", "Private balconies", "Breakfast included"]
+	},
+	{
+		"image": "https://i.ibb.co/JtTpbx2/hotel6.jpg",
+		"estate_title": "Quaint Motel",
+		"id": "006",
+		"segment_name": "Motel",
+		"description": "Experience comfort and convenience at our quaint motel, located near major attractions, with clean rooms and friendly service.",
+		"price": "$100/night",
+		"status": "rent",
+		"area": "1,500 sq ft",
+		"location": "Orlando, Florida",
+		"facilities": ["Free parking", "Pool", "WiFi"]
+	},
+	{
+		"image": "https://i.ibb.co/WP8HsqX/hotel7.jpg",
+		"estate_title": "Riverside Cabin Retreat",
+		"id": "007",
+		"segment_name": "Vacation Rental",
+		"description": "Unwind in nature at our cozy cabin retreat, nestled along a tranquil river, offering fishing, hiking, and breathtaking scenery.",
+		"price": "$250/night",
+		"status": "rent",
+		"area": "1,200 sq ft",
+		"location": "Big Sur, California",
+		"facilities": ["Riverside location", "Firepit", "Pet-friendly"]
+	},
+	{
+		"image": "https://i.ibb.co/Gpf4461/hotel8.jpg",
+		"estate_title": "Elegant Boutique Resort",
+		"id": "008",
+		"segment_name": "Resort",
+		"description": "Indulge in luxury at our elegant boutique resort, featuring spacious suites, gourmet dining, and a serene spa sanctuary.",
+		"price": "$1,000,000",
+		"status": "sale",
+		"area": "15,000 sq ft",
+		"location": "Bali, Indonesia",
+		"facilities": ["Spa", "Poolside cabanas", "Private beach"]
+	},
+	{
+		"image": "https://i.ibb.co/4ZjNtX3/hotel9.jpg",
+		"estate_title": "Historic Bed and Breakfast",
+		"id": "009",
+		"segment_name": "Guesthouse",
+		"description": "Step back in time at our historic bed and breakfast, offering elegant accommodations, homemade breakfast, and personalized service.",
+		"price": "$300/night",
+		"status": "rent",
+		"area": "3,500 sq ft",
+		"location": "Charleston, South Carolina",
+		"facilities": ["Antique furnishings", "Garden courtyard", "Afternoon tea"]
+	}
+]
