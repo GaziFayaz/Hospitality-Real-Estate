@@ -1,5 +1,4 @@
-import React from "react";
-
+/* eslint-disable react/no-unescaped-entities */
 const Footer = () => {
 	return (
 		<footer className="footer p-10 bg-[#67C6E3] border-t-slate-950 border-2 text-base-content px-24 ">
@@ -43,8 +42,12 @@ const Footer = () => {
 					<p>Telephone : +013 445 678 155</p>
 				</div>
 				<div>
-					<p>Email : <a className="link link-hover">info@example.com</a></p>
-					<p>Web : <a className="link link-hover">www.example.com</a></p>
+					<p>
+						Email : <a className="link link-hover">info@example.com</a>
+					</p>
+					<p>
+						Web : <a className="link link-hover">www.example.com</a>
+					</p>
 				</div>
 			</nav>
 		</footer>
