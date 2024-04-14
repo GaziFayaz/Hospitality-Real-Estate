@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
+	const { user } = useContext(AuthContext);
+	console.log("user", user)
 	const activeLinkAttr = "bg-[#5356FF] text-white";
 
 	const routeItems = (
@@ -21,22 +25,43 @@ const Navbar = () => {
 					About
 				</NavLink>
 			</li>
-			<li>
-				<NavLink
-					to="/login"
-					className={({ isActive }) => (isActive ? activeLinkAttr : "")}
-				>
-					Login
-				</NavLink>
-			</li>
-			<li>
-				<NavLink
-					to="/register"
-					className={({ isActive }) => (isActive ? activeLinkAttr : "")}
-				>
-					Register
-				</NavLink>
-			</li>
+
+			{user ? (
+				<>
+					<li>
+						<NavLink
+							to="/update-profile"
+							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+						>
+							Update Profile
+						</NavLink>
+					</li>
+					<li>
+						<div>
+							{/* {user} */}
+						</div>
+					</li>
+				</>
+			) : (
+				<>
+					<li>
+						<NavLink
+							to="/login"
+							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+						>
+							Login
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/register"
+							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+						>
+							Register
+						</NavLink>
+					</li>
+				</>
+			)}
 		</>
 	);
 	return (
