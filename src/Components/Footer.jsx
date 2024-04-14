@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 const Footer = () => {
 	return (
-		<footer className="footer p-10 bg-[#67C6E3] border-t-slate-950 border-2 text-base-content px-24 ">
+		<footer className="mt-8 md:mt-12 lg:mt-24 footer p-10 bg-[#67C6E3] border-t-slate-950 border-2 text-base-content md:px-12 lg:px-24">
 			<form>
 				<h6 className="footer-title">About Us</h6>
 				<p className="w-80 text-justify">
@@ -33,21 +33,23 @@ const Footer = () => {
 			</nav>
 			<nav className="gap-2">
 				<h6 className="footer-title">Contact Us</h6>
-				<div>
-					<p>256, 1st AVE, Manchester</p>
-					<p>125 , Noth England</p>
-				</div>
-				<div>
-					<p>Telephone : +012 345 678 102</p>
-					<p>Telephone : +013 445 678 155</p>
-				</div>
-				<div>
-					<p>
-						Email : <a className="link link-hover">info@example.com</a>
-					</p>
-					<p>
-						Web : <a className="link link-hover">www.example.com</a>
-					</p>
+				<div className="flex flex-col gap-4">
+					<div>
+						<p>256, 1st AVE, Manchester</p>
+						<p>125 , North England</p>
+					</div>
+					<div>
+						<p>Telephone : +012 345 678 102</p>
+						<p>Telephone : +013 445 678 155</p>
+					</div>
+					<div>
+						<p>
+							Email : <a className="link link-hover">info@hotelhive.com</a>
+						</p>
+						<p>
+							Web : <a className="link link-hover">www.hotelhive.com</a>
+						</p>
+					</div>
 				</div>
 			</nav>
 		</footer>
