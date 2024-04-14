@@ -6,7 +6,7 @@ const Login = () => {
 		<div className="flex-1 flex items-center">
 			<form
 				action=""
-				className="mx-auto flex flex-col gap-4 w-[350px] md:w-[400px] lg:w-1/4 items-center p-12 bg-[#5356FF] rounded-3xl"
+				className="mx-auto flex flex-col gap-4 w-full md:w-[500px] lg:min-w-[550px] lg:w-[2/3] items-center py-8 md:py-12 px-4 md:px-12 bg-[#5356FF] rounded-2xl md:rounded-3xl"
 			>
 				<h1 className="text-3xl font-bold text-center text-white">Login</h1>
 				<div className="w-full">
@@ -16,7 +16,7 @@ const Login = () => {
 						name="email"
 						id="email"
 						placeholder="Your Email"
-            required
+						required
 						className="border-b-2 border-gray-400 w-full p-2 rounded-xl"
 					/>
 				</div>
@@ -27,7 +27,7 @@ const Login = () => {
 						name="password"
 						id="password"
 						placeholder="Your Password"
-            required
+						required
 						className="border-b-2 border-gray-400 w-full p-2 rounded-xl"
 					/>
 					<a className="text-sm text-gray-300 self-end link-hover mt-1">

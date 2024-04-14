@@ -3,7 +3,7 @@ import Estates from "./Estates/Estates";
 
 const Home = () => {
 	return (
-		<div className="flex-1 flex flex-col items-center mx-32 gap-24">
+		<div className="flex-1 flex flex-col items-center gap-24">
 			<Banner></Banner>
       <Estates></Estates>
 		</div>
