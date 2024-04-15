@@ -4,9 +4,13 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
-	const { user, logout } = useContext(AuthContext);
+	const { user, loading, logout } = useContext(AuthContext);
 	console.log("user", user);
 	const activeLinkAttr = "bg-[#5356FF] text-white";
+
+	if(loading){
+		return <div className="navbar"></div>
+	}
 
 	const routeItems = (
 		<>
@@ -26,12 +30,10 @@ const Navbar = () => {
 					About
 				</NavLink>
 			</li>
-
-			
 		</>
 	);
 	return (
-		<div className="navbar ">
+		<div className={`navbar `}>
 			<div className="navbar-start">
 				<div className="dropdown">
 					<div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -51,10 +53,64 @@ const Navbar = () => {
 						</svg>
 					</div>
 					<ul
+						//
 						tabIndex={0}
-						className="z-50 menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+						className="z-50 menu menu-sm  dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-auto"
 					>
 						{routeItems}
+						{user ? (
+							<>
+								<li className="h-full">
+									<NavLink
+										to="/update-profile"
+										className={({ isActive }) =>
+											isActive ? activeLinkAttr : ""
+										}
+									>
+										Update Profile
+									</NavLink>
+								</li>
+								<li>
+									<button onClick={() => logout()}>Logout</button>
+								</li>
+								<li className="h-full mt-1" title={user.displayName}>
+									<div className="h-full">
+										{user.photoURL ? (
+											<img
+												src={user.photoURL}
+												alt="profile"
+												className="h-10 w-10 rounded-full"
+											></img>
+										) : (
+											<CgProfile className=" text-3xl text-black  rounded-full  object-cover"></CgProfile>
+										)}
+									</div>
+								</li>
+							</>
+						) : (
+							<>
+								<li className="h-full">
+									<NavLink
+										to="/login"
+										className={({ isActive }) =>
+											isActive ? activeLinkAttr : ""
+										}
+									>
+										Login
+									</NavLink>
+								</li>
+								<li className="h-full">
+									<NavLink
+										to="/register"
+										className={({ isActive }) =>
+											isActive ? activeLinkAttr : ""
+										}
+									>
+										Register
+									</NavLink>
+								</li>
+							</>
+						)}
 					</ul>
 				</div>
 				<Link
@@ -68,55 +124,55 @@ const Navbar = () => {
 				<ul className="menu menu-horizontal px-1 text-xl font-bold text-[#5356FF] h-full items-center">
 					{routeItems}
 					{user ? (
-				<>
-					<li className="h-full">
-						<NavLink
-							to="/update-profile"
-							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
-						>
-							Update Profile
-						</NavLink>
-					</li>
-					<button
-						className="underline text-[#5356FF]  text-xl font-bold"
-						onClick={() => logout()}
-					>
-						Logout
-					</button>
-					<li className="ml-4 h-full" title={user.displayName}>
-						<div className="h-full p-0">
-							{user.photoUrl ? (
-								<img
-									src={user.photoUrl}
-									alt="profile"
-									className="h-10 w-10 rounded-full"
-								></img>
-							) : (
-								<CgProfile className=" text-3xl text-black  rounded-full"></CgProfile>
-							)}
-						</div>
-					</li>
-				</>
-			) : (
-				<>
-					<li className="h-full">
-						<NavLink
-							to="/login"
-							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
-						>
-							Login
-						</NavLink>
-					</li>
-					<li className="h-full">
-						<NavLink
-							to="/register"
-							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
-						>
-							Register
-						</NavLink>
-					</li>
-				</>
-			)}
+						<>
+							<li className="h-full">
+								<NavLink
+									to="/update-profile"
+									className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+								>
+									Update Profile
+								</NavLink>
+							</li>
+							<button
+								className="underline text-[#5356FF]  text-xl font-bold"
+								onClick={() => logout()}
+							>
+								Logout
+							</button>
+							<li className="ml-4 h-full" title={user.displayName}>
+								<div className="h-full p-0">
+									{user.photoURL ? (
+										<img
+											src={user.photoURL}
+											alt="profile"
+											className="h-10 w-10 rounded-full object-cover"
+										></img>
+									) : (
+										<CgProfile className=" text-3xl text-black  rounded-full"></CgProfile>
+									)}
+								</div>
+							</li>
+						</>
+					) : (
+						<>
+							<li className="h-full">
+								<NavLink
+									to="/login"
+									className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+								>
+									Login
+								</NavLink>
+							</li>
+							<li className="h-full">
+								<NavLink
+									to="/register"
+									className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+								>
+									Register
+								</NavLink>
+							</li>
+						</>
+					)}
 				</ul>
 			</div>
 		</div>

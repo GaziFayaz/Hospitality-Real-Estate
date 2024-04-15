@@ -5,6 +5,7 @@ import Login from "../Components/Login";
 import Register from "../Components/Register";
 import Home from "../Components/Home";
 import EstateDetails from "../Components/Estates/EstateDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
 	{
@@ -13,25 +14,29 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				path: "/",
-				element: <Home></Home>
+				element: <Home></Home>,
 			},
 			{
 				path: "/about",
-				element: <About></About>
+				element: <About></About>,
 			},
 			{
 				path: "/login",
-				element: <Login></Login>
+				element: <Login></Login>,
 			},
 			{
 				path: "/register",
-				element: <Register></Register>
+				element: <Register></Register>,
 			},
 			{
 				path: "estate/:id",
-				element: <EstateDetails></EstateDetails>,
-				loader: () => fetch("../estates.json")
+				element: (
+					<PrivateRoutes>
+						<EstateDetails></EstateDetails>
+					</PrivateRoutes>
+				),
+				loader: () => fetch("../estates.json"),
 			},
-		]
+		],
 	},
 ]);
