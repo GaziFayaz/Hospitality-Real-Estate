@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Login = () => {
+	const { signInEmailPassword } = useContext(AuthContext);
+
 	const {
 		register,
 		handleSubmit,
@@ -12,6 +16,9 @@ const Login = () => {
 
 	const onSubmit = (data) => {
 		console.log(data);
+		signInEmailPassword(data.email, data.password)
+		.then(userCredential => console.log(userCredential))
+		.catch(error => console.log(error));
 	};
 
 	console.log(watch("email")); // watch input value by passing the name of it

@@ -27,56 +27,7 @@ const Navbar = () => {
 				</NavLink>
 			</li>
 
-			{user ? (
-				<>
-					<li className="h-full">
-						<NavLink
-							to="/update-profile"
-							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
-						>
-							Update Profile
-						</NavLink>
-					</li>
-					<button
-						className="underline text-[#5356FF]  text-xl font-bold"
-						onClick={() => logout()}
-					>
-						Logout
-					</button>
-					<li className="ml-4 h-full">
-						<div className="h-full p-0">
-							{user.photoUrl ? (
-								<img
-									src={user.photoUrl}
-									alt="profile"
-									className="h-10 w-10 rounded-full"
-								></img>
-							) : (
-								<CgProfile className=" text-4xl p-1 text-black bg-gray-500 rounded-full"></CgProfile>
-							)}
-						</div>
-					</li>
-				</>
-			) : (
-				<>
-					<li className="h-full">
-						<NavLink
-							to="/login"
-							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
-						>
-							Login
-						</NavLink>
-					</li>
-					<li className="h-full">
-						<NavLink
-							to="/register"
-							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
-						>
-							Register
-						</NavLink>
-					</li>
-				</>
-			)}
+			
 		</>
 	);
 	return (
@@ -116,6 +67,56 @@ const Navbar = () => {
 			<div className="navbar-end hidden lg:flex">
 				<ul className="menu menu-horizontal px-1 text-xl font-bold text-[#5356FF] h-full items-center">
 					{routeItems}
+					{user ? (
+				<>
+					<li className="h-full">
+						<NavLink
+							to="/update-profile"
+							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+						>
+							Update Profile
+						</NavLink>
+					</li>
+					<button
+						className="underline text-[#5356FF]  text-xl font-bold"
+						onClick={() => logout()}
+					>
+						Logout
+					</button>
+					<li className="ml-4 h-full" title={user.displayName}>
+						<div className="h-full p-0">
+							{user.photoUrl ? (
+								<img
+									src={user.photoUrl}
+									alt="profile"
+									className="h-10 w-10 rounded-full"
+								></img>
+							) : (
+								<CgProfile className=" text-3xl text-black  rounded-full"></CgProfile>
+							)}
+						</div>
+					</li>
+				</>
+			) : (
+				<>
+					<li className="h-full">
+						<NavLink
+							to="/login"
+							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+						>
+							Login
+						</NavLink>
+					</li>
+					<li className="h-full">
+						<NavLink
+							to="/register"
+							className={({ isActive }) => (isActive ? activeLinkAttr : "")}
+						>
+							Register
+						</NavLink>
+					</li>
+				</>
+			)}
 				</ul>
 			</div>
 		</div>
