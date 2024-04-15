@@ -6,6 +6,7 @@ import Register from "../Components/Register";
 import Home from "../Components/Home";
 import EstateDetails from "../Components/Estates/EstateDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import UpdateProfile from "../Components/UpdateProfile/UpdateProfile";
 
 export const router = createBrowserRouter([
 	{
@@ -36,6 +37,14 @@ export const router = createBrowserRouter([
 					</PrivateRoutes>
 				),
 				loader: () => fetch("../estates.json"),
+			},
+			{
+				path: "/update-profile",
+				element: (
+					<PrivateRoutes>
+						<UpdateProfile></UpdateProfile>
+					</PrivateRoutes>
+				),
 			},
 		],
 	},

@@ -8,8 +8,8 @@ const Navbar = () => {
 	console.log("user", user);
 	const activeLinkAttr = "bg-[#5356FF] text-white";
 
-	if(loading){
-		return <div className="navbar"></div>
+	if (loading) {
+		return <div className="navbar"></div>;
 	}
 
 	const routeItems = (
@@ -32,6 +32,7 @@ const Navbar = () => {
 			</li>
 		</>
 	);
+
 	return (
 		<div className={`navbar `}>
 			<div className="navbar-start">
@@ -133,23 +134,20 @@ const Navbar = () => {
 									Update Profile
 								</NavLink>
 							</li>
-							<button
-								className="underline text-[#5356FF]  text-xl font-bold"
+							<Link
+								to={"/"}
+								className="underline text-[#5356FF]  text-xl font-bold px-4 py-2"
 								onClick={() => logout()}
 							>
 								Logout
-							</button>
+							</Link>
 							<li className="ml-4 h-full" title={user.displayName}>
 								<div className="h-full p-0">
-									{user.photoURL ? (
-										<img
-											src={user.photoURL}
-											alt="profile"
-											className="h-10 w-10 rounded-full object-cover"
-										></img>
-									) : (
-										<CgProfile className=" text-3xl text-black  rounded-full"></CgProfile>
-									)}
+									<img
+										src={user.photoURL}
+										alt="profile"
+										className="h-10 w-10 rounded-full object-cover"
+									></img>
 								</div>
 							</li>
 						</>
