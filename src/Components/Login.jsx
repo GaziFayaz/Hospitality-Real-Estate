@@ -1,20 +1,24 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { toast } from "react-toastify";
+import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 
 const Login = () => {
-	const { user, loading, signInEmailPassword } = useContext(AuthContext);
+	const successToast = (message) =>
+		toast.success(message, { position: "bottom-right" });
+	const errorToast = (message) =>
+		toast.error(message, { position: "bottom-right" });
+	const { user, loading, setLoading, signInEmailPassword } =
+		useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	const {
-		register,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm();
+	const [showPassword, setShowPassword] = useState(false);
+
+	const { register, handleSubmit, watch } = useForm();
 
 	if (loading) {
 		return (
@@ -24,15 +28,21 @@ const Login = () => {
 		);
 	}
 
-
 	const onSubmit = (data) => {
 		console.log(data);
 		signInEmailPassword(data.email, data.password)
 			.then((userCredential) => {
 				console.log(userCredential);
+				successToast("Login Successful");
 				location.state ? navigate(location.state) : navigate(-1);
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => {
+				setLoading(false);
+				if (error.code === "auth/invalid-credential") {
+					errorToast("Invalid email or password");
+				}
+				console.log(error.code);
+			});
 	};
 
 	console.log(watch("email")); // watch input value by passing the name of it
@@ -59,15 +69,28 @@ const Login = () => {
 					</div>
 					<div className="w-full flex flex-col">
 						<p className="text-xl font-semibold text-white mb-2">Password</p>
-						<input
-							{...register("password", { required: true })}
-							type="password"
-							name="password"
-							id="password"
-							placeholder="Your Password"
-							className="border-b-2 border-gray-400 w-full p-2 rounded-xl"
-						/>
-						{errors.password && <span>This field is required</span>}
+						<div className="relative">
+							<input
+								{...register("password", { required: true })}
+								type={showPassword ? "text" : "password"}
+								name="password"
+								id="password"
+								placeholder="Your Password"
+								className="border-b-2 border-gray-400 w-full p-2 rounded-xl"
+							/>
+							{showPassword ? (
+								<BsEyeFill
+									className="absolute right-4 top-3 cursor-pointer"
+									onClick={() => setShowPassword(!showPassword)}
+								></BsEyeFill>
+							) : (
+								<BsEyeSlashFill
+									className="absolute right-4 top-3 cursor-pointer"
+									onClick={() => setShowPassword(!showPassword)}
+								></BsEyeSlashFill>
+							)}
+						</div>
+
 						<a className="text-sm text-gray-300 self-end link-hover mt-1">
 							Forgot Password?
 						</a>
@@ -94,11 +117,9 @@ const Login = () => {
 				</form>
 			</div>
 		);
-	}
-	else{
+	} else {
 		navigate("/");
 	}
-	
 };
 
 export default Login;

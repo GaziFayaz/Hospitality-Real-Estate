@@ -2,32 +2,56 @@ import { useForm } from "react-hook-form";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 
 const Register = () => {
-	const { user, loading, createUserEmailPassword, customizeProfile } = useContext(AuthContext);
+	const successToast = (message) =>
+		toast.success(message, { position: "bottom-right" });
+	const errorToast = (message) =>
+		toast.error(message, { position: "bottom-right" });
+	const { loading, createUserEmailPassword, customizeProfile } =
+		useContext(AuthContext);
 	const navigate = useNavigate();
+	const [showPassword, setShowPassword] = useState(false);
 
-
-	const {
-		register,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm();
+	const { register, handleSubmit, watch } = useForm();
 
 	const onSubmit = (data) => {
 		console.log(data);
+		if (data.password.length < 6) {
+			errorToast("Password must be at least 6 characters");
+			if (!/[A-Z]/.test(data.password)) {
+				errorToast("Password must contain at least one uppercase letter");
+			}
+			if (!/[a-z]/.test(data.password)) {
+				errorToast("Password must contain at least one lowercase letter");
+			}
+			return;
+		}
+		if (!/[A-Z]/.test(data.password)) {
+			errorToast("Password must contain at least one uppercase letter");
+			if (!/[a-z]/.test(data.password)) {
+				errorToast("Password must contain at least one lowercase letter");
+			}
+			return;
+		}
+		if (!/[a-z]/.test(data.password)) {
+			errorToast("Password must contain at least one lowercase letter");
+			return;
+		}
 		createUserEmailPassword(data.email, data.password)
 			.then((userCredential) => {
 				// Signed up
 				console.log(userCredential);
-				
+
 				customizeProfile(data.name, data.photoUrl)
 					.then((userCredential) => {
 						console.log(userCredential);
+						successToast("Registration Successful");
 						window.location.reload();
-						return <Navigate to="/" />
+						return <Navigate to="/" />;
 					})
 					.catch((error) => {
 						console.log(error);
@@ -37,7 +61,6 @@ const Register = () => {
 			})
 			.catch((error) => {
 				console.log(error);
-				// ..
 			});
 	};
 
@@ -96,15 +119,33 @@ const Register = () => {
 				</div>
 				<div className="w-full flex flex-col">
 					<p className="text-xl font-semibold text-white mb-2">Password</p>
-					<input
-						{...register("password", { required: true })}
-						type="password"
-						name="password"
-						id="password"
-						placeholder="Your Password"
-						required
-						className="border-b-2 border-gray-400 w-full p-2 rounded-xl"
-					/>
+					<div className="relative">
+						<input
+							{...register("password", {
+								required: true,
+							})}
+							type={showPassword ? "text" : "password"}
+							name="password"
+							id="password"
+							placeholder="Your Password"
+							required
+							className="border-b-2 border-gray-400 w-full p-2 rounded-xl"
+						/>
+						{showPassword ? (
+							<BsEyeFill
+								className="absolute right-4 top-3 cursor-pointer"
+								onClick={() => setShowPassword(!showPassword)}
+							></BsEyeFill>
+						) : (
+							<BsEyeSlashFill
+								className="absolute right-4 top-3 cursor-pointer"
+								onClick={() => setShowPassword(!showPassword)}
+							></BsEyeSlashFill>
+						)}
+
+						{/* {showPassword ? ():()}
+						 */}
+					</div>
 				</div>
 				<input
 					type="submit"
