@@ -7,10 +7,10 @@ import "react-toastify/dist/ReactToastify.css";
 const Root = () => {
 	return (
 		<div className="font-poppins min-h-screen flex flex-col justify-between bg-[#DFF5FF]">
-			<ToastContainer />
 			<Navbar></Navbar>
 			<div className="mx-6 md:mx-12 lg:mx-32">
 				<Outlet></Outlet>
+				<ToastContainer />
 			</div>
 
 			<Footer></Footer>

@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { useContext, useState } from "react";
@@ -159,11 +158,7 @@ const Register = () => {
 					value={"Sign Up"}
 					className="btn w-full text-xl border-none bg-[#67C6E3] text-white"
 				/>
-				<p className="text-white font-semibold">Or Sign Up using</p>
-				<div className="flex gap-8">
-					<FaGoogle className="text-3xl text-white" />
-					<FaFacebookF className="text-3xl text-white" />
-				</div>
+				
 				<p className="text-white w-full text-center mt-2">
 					Already have an account?{" "}
 					<Link

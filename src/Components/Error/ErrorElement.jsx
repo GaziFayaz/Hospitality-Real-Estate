@@ -7,7 +7,7 @@ const ErrorElement = () => {
 			<Helmet>
 					<title>Hotel Hive | Page Not Found</title>
 				</Helmet>
-			<h1 className="text-5xl">404 Page Not Found</h1>
+			<h1 className="text-5xl text-center">404 Page Not Found</h1>
 			<Link to={"/"} className="link link-primary">
 				Go to Home Page
 			</Link>
