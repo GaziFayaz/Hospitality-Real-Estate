@@ -9,7 +9,7 @@ const UpdateProfile = () => {
 		register,
 		handleSubmit,
 		watch,
-		formState: { isDirty, errors },
+		formState: { isDirty },
 	} = useForm({
 		defaultValues: { name: user.displayName, photoUrl: user.photoURL },
 	});

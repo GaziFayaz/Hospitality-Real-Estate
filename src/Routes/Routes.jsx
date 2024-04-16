@@ -7,6 +7,7 @@ import Home from "../Components/Home";
 import EstateDetails from "../Components/Estates/EstateDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdateProfile from "../Components/UpdateProfile/UpdateProfile";
+import ErrorElement from "../Components/Error/ErrorElement";
 
 export const router = createBrowserRouter([
 	{
@@ -47,5 +48,6 @@ export const router = createBrowserRouter([
 				),
 			},
 		],
+		errorElement: <ErrorElement></ErrorElement>
 	},
 ]);
