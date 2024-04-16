@@ -5,6 +5,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 	const successToast = (message) =>
@@ -67,6 +68,9 @@ const Register = () => {
 	if (loading) {
 		return (
 			<div className="flex justify-center ">
+				<Helmet>
+					<title>Hotel Hive | Register</title>
+				</Helmet>
 				<span className="loading loading-spinner loading-lg text-[#5356FF] "></span>
 			</div>
 		);
@@ -75,6 +79,9 @@ const Register = () => {
 	console.log(watch("email"));
 	return (
 		<div className="flex-1 flex items-center">
+			<Helmet>
+					<title>Hotel Hive | Register</title>
+				</Helmet>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
 				action=""

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const UpdateProfile = () => {
 	const { user, customizeProfile } = useContext(AuthContext);
@@ -32,6 +33,9 @@ const UpdateProfile = () => {
 
 	return (
 		<div className="flex-1 flex items-center">
+			<Helmet>
+					<title>Hotel Hive | Update Profile</title>
+				</Helmet>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
 				action=""

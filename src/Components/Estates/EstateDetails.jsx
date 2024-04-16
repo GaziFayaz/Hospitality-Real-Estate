@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaLocationDot } from "react-icons/fa6";
 import { ImDiamonds } from "react-icons/im";
 import { MdSpaceDashboard } from "react-icons/md";
@@ -7,6 +8,9 @@ const EstateDetails = () => {
 	const estate = useLoaderData().find((estate) => estate.id === id);
 	return (
 		<div>
+			<Helmet>
+				<title>Hotel Hive | {estate.estate_title}</title>
+			</Helmet>
 			<div className="rounded-3xl flex flex-col lg:flex-row justify-between w-full gap-4 lg:gap-0">
 				<img
 					src={estate.image}

@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 	const successToast = (message) =>
@@ -23,6 +24,9 @@ const Login = () => {
 	if (loading) {
 		return (
 			<div className="flex justify-center ">
+				<Helmet>
+					<title>Hotel Hive | Login</title>
+				</Helmet>
 				<span className="loading loading-spinner loading-lg text-[#5356FF] "></span>
 			</div>
 		);
@@ -50,6 +54,9 @@ const Login = () => {
 	if (!user) {
 		return (
 			<div className="flex-1 flex items-center">
+				<Helmet>
+					<title>Hotel Hive | Login</title>
+				</Helmet>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
 					action=""
