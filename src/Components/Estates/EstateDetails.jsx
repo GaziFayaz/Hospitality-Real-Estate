@@ -6,18 +6,34 @@ import { useParams, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import shortListEstate from "../../utilities/shortListEstate";
+import { AuthContext } from "../../Providers/AuthProvider";
 const EstateDetails = () => {
-	// const 
+	const { user } = useContext(AuthContext);
 	const shortlistKey = "shortlistedEstates";
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
 	useEffect(() => {
-		if(!localStorage.getItem(shortlistKey)) localStorage.setItem(shortlistKey, JSON.stringify([]))
-	}, [])
+		console.log(user);
+		if (!localStorage.getItem(shortlistKey)) {
+			const userShortList = {
+				[user.uid]: [],
+			};
+			localStorage.setItem(shortlistKey, JSON.stringify(userShortList));
+		} else {
+			if (!JSON.parse(localStorage.getItem(shortlistKey))[user.uid]) {
+				const userShortList = {
+					...JSON.parse(localStorage.getItem(shortlistKey)),
+					[user.uid]: [],
+				};
+				console.log(userShortList)
+				localStorage.setItem(shortlistKey, JSON.stringify(userShortList));
+			}
+		}
+	}, [user]);
 
 	const successToast = (message) =>
 		toast.success(message, {
@@ -92,7 +108,20 @@ const EstateDetails = () => {
 						</p>
 					</div>
 					<div className="flex justify-center">
-						<button onClick={() => shortListEstate(shortlistKey, estate.id, successToast, errorToast)} className="btn btn-primary">Add to shortlist</button>
+						<button
+							onClick={() =>
+								shortListEstate(
+									shortlistKey,
+									user,
+									estate.id,
+									successToast,
+									errorToast
+								)
+							}
+							className="btn btn-primary"
+						>
+							Add to shortlist
+						</button>
 					</div>
 				</div>
 			</div>
