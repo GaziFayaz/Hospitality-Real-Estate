@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
-import About from "../Components/About";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
 import Home from "../Components/Home";
@@ -8,6 +7,7 @@ import EstateDetails from "../Components/Estates/EstateDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdateProfile from "../Components/UpdateProfile/UpdateProfile";
 import ErrorElement from "../Components/Error/ErrorElement";
+import ShortlistEstates from "../Components/ShortlistEstates/ShortlistEstates";
 
 export const router = createBrowserRouter([
 	{
@@ -19,8 +19,13 @@ export const router = createBrowserRouter([
 				element: <Home></Home>,
 			},
 			{
-				path: "/about",
-				element: <About></About>,
+				path: "/shortlisted-estates",
+				element: (
+					<PrivateRoutes>
+						<ShortlistEstates></ShortlistEstates>
+					</PrivateRoutes>
+				),
+				loader: () => fetch("../estates.json"),
 			},
 			{
 				path: "/login",
@@ -48,6 +53,6 @@ export const router = createBrowserRouter([
 				),
 			},
 		],
-		errorElement: <ErrorElement></ErrorElement>
+		errorElement: <ErrorElement></ErrorElement>,
 	},
 ]);

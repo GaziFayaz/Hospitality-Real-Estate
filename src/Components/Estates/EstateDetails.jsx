@@ -3,16 +3,33 @@ import { FaLocationDot } from "react-icons/fa6";
 import { ImDiamonds } from "react-icons/im";
 import { MdSpaceDashboard } from "react-icons/md";
 import { useParams, useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import shortListEstate from "../../utilities/shortListEstate";
 const EstateDetails = () => {
+	const shortlistKey = "shortlistedEstates";
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
+	useEffect(() => {
+		if(!localStorage.getItem(shortlistKey)) localStorage.setItem(shortlistKey, JSON.stringify([]))
+	}, [])
+
+	const successToast = (message) =>
+		toast.success(message, {
+			position: "bottom-right",
+		});
+
+	const errorToast = (message) =>
+		toast.error(message, {
+			position: "bottom-right",
+		});
+
 	const { id } = useParams();
-	const estate = useLoaderData().find((estate) => estate.id === id);
+	const estate = useLoaderData().find((estate) => estate.id === parseInt(id));
 	return (
 		<div>
 			<Helmet>
@@ -72,6 +89,9 @@ const EstateDetails = () => {
 						<p className="text-center lg:text-right font-bold text-xl text-red-600 border-2 border-red-500 lg:p-2  rounded-lg">
 							Available for {estate.status}
 						</p>
+					</div>
+					<div className="flex justify-center">
+						<button onClick={() => shortListEstate(shortlistKey, estate.id, successToast, errorToast)} className="btn btn-primary">Add to shortlist</button>
 					</div>
 				</div>
 			</div>

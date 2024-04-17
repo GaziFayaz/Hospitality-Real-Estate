@@ -24,10 +24,10 @@ const Navbar = () => {
 			</li>
 			<li className="h-full">
 				<NavLink
-					to="/about"
+					to="/shortlisted-estates"
 					className={({ isActive }) => (isActive ? activeLinkAttr : "")}
 				>
-					About
+					Shortlist
 				</NavLink>
 			</li>
 		</>

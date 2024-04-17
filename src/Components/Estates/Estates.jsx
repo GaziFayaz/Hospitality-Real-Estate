@@ -21,15 +21,14 @@ const Estates = () => {
 		<div className="flex flex-col items-center text-center w-full">
 			<h1 className="text-7xl font-bold text-[#5356FF]">Estates</h1>
 			<p className="w-3/4 text-xl mt-5">
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-				vitae molestias natus similique aut
+			Explore our curated collection of luxurious estates tailored for hospitality businesses
 			</p>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-14">
 				{estates.map((estate) => {
 					console.log(estate);
 					return (
 						<div
-							data-aos="zoom-in"
+						data-aos="zoom-in"
 							className="card card-compact bg-base-100 shadow-xl w-full"
 							key={estate.id}
 						>

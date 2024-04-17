@@ -2,7 +2,7 @@
 	{
 		"image": "https://i.ibb.co/0V8SHG9/hotel1.jpg",
 		"estate_title": "Luxury Beachfront Resort",
-		"id": "001",
+		"id": 1,
 		"segment_name": "Resort",
 		"description": "Experience the epitome of coastal luxury at our meticulously designed beachfront resort in Malibu, California. Indulge in unparalleled relaxation as you soak up the sun on pristine sands, accompanied by breathtaking views of the Pacific Ocean. Our resort offers a seamless blend of elegance and comfort, with spacious accommodations adorned with stylish furnishings and modern amenities. From gourmet dining options to rejuvenating spa treatments, every aspect of your stay is crafted to exceed expectations. Whether you're seeking a romantic getaway or a family retreat, our resort provides the perfect backdrop for unforgettable memories.",
 		"price": "$500,000",
@@ -14,7 +14,7 @@
 	{
 		"image": "https://i.ibb.co/pZ1L29Q/hotel2.jpg",
 		"estate_title": "Charming Mountain Lodge",
-		"id": "002",
+		"id": 2,
 		"segment_name": "Lodge",
 		"description": "Nestled amidst the picturesque landscape of Aspen, Colorado, our charming mountain lodge beckons you to unwind in tranquility. Immerse yourself in the warmth of rustic decor and crackling fireplaces as you embrace the serene ambiance of the mountains. Each room offers a cozy retreat, while outdoor enthusiasts can explore nearby hiking trails or simply revel in the beauty of nature. Whether it's a romantic escape or a gathering of friends, our lodge provides an idyllic setting for relaxation and rejuvenation",
 		"price": "$300,000",
@@ -26,7 +26,7 @@
 	{
 		"image": "https://i.ibb.co/2spdtk0/hotel3.jpg",
 		"estate_title": "Urban Boutique Hotel",
-		"id": "003",
+		"id": 3,
 		"segment_name": "Hotel",
 		"description": "Embrace the vibrant energy of New York City at our urban boutique hotel, where modern sophistication meets timeless charm. Located in the heart of Manhattan, our hotel offers stylish accommodations and personalized service for discerning travelers. Indulge in panoramic views of the city skyline from our rooftop bar, savor culinary delights at our onsite restaurant, or explore the bustling streets of the Big Apple just steps away. Whether you're here for business or leisure, our hotel provides a luxurious oasis in the heart of the city.",
 		"price": "$700,000",
@@ -38,7 +38,7 @@
 	{
 		"image": "https://i.ibb.co/p28qBN4/hotel4.jpg",
 		"estate_title": "Seaside Vacation Rental",
-		"id": "004",
+		"id": 4,
 		"segment_name": "Vacation Rental",
 		"description": "Escape to paradise at our seaside vacation rental in Maui, Hawaii, where sun-kissed beaches and turquoise waters await. Nestled along the pristine coastline, our charming rental offers the perfect blend of comfort and convenience. Relax in spacious accommodations adorned with coastal charm, and step outside to discover your own private slice of paradise. With exclusive beach access and a range of amenities including an outdoor patio and BBQ area, your Hawaiian getaway promises endless relaxation and adventure.",
 		"price": "$200/night",
@@ -50,7 +50,7 @@
 	{
 		"image": "https://i.ibb.co/mRwvYpN/hotel5.jpg",
 		"estate_title": "Cozy Guesthouse Retreat",
-		"id": "005",
+		"id": 5,
 		"segment_name": "Guesthouse",
 		"description": "Discover a hidden gem in the desert landscape of Sedona, Arizona, at our intimate guesthouse retreat. Surrounded by towering red rocks and lush gardens, our cozy retreat offers a tranquil escape from the hustle and bustle of everyday life. Each room is tastefully appointed with thoughtful touches, while personalized service ensures a memorable stay. Wake up to the sound of birds chirping and enjoy breakfast on your private balcony before setting out to explore the natural wonders of Sedona. Whether you're seeking solitude or connection, our guesthouse provides the perfect sanctuary.",
 		"price": "$150,000",
@@ -62,7 +62,7 @@
 	{
 		"image": "https://i.ibb.co/JtTpbx2/hotel6.jpg",
 		"estate_title": "Quaint Motel",
-		"id": "006",
+		"id": 6,
 		"segment_name": "Motel",
 		"description": "Experience the charm of old-world hospitality at our quaint motel in Orlando, Florida. Conveniently located near major attractions, our motel offers comfortable accommodations and friendly service for travelers on the go. Each room is thoughtfully designed for comfort and convenience, with amenities such as free parking, a pool, and WiFi. Whether you're here for a family vacation or a weekend getaway, our motel provides a welcoming retreat after a day of adventure in the Sunshine State.",
 		"price": "$100/night",
@@ -74,7 +74,7 @@
 	{
 		"image": "https://i.ibb.co/WP8HsqX/hotel7.jpg",
 		"estate_title": "Riverside Cabin Retreat",
-		"id": "007",
+		"id": 7,
 		"segment_name": "Vacation Rental",
 		"description": "Immerse yourself in nature's tranquility at our riverside cabin retreat in Big Sur, California. Tucked away along a babbling river, our cozy cabins offer the perfect escape from the hustle and bustle of city life. Spend your days fishing for trout, hiking through ancient redwood forests, or simply relaxing by the firepit as the stars twinkle overhead. With pet-friendly accommodations and a range of amenities, our cabin retreat invites you to unwind and reconnect with the natural world.",
 		"price": "$250/night",
@@ -86,7 +86,7 @@
 	{
 		"image": "https://i.ibb.co/Gpf4461/hotel8.jpg",
 		"estate_title": "Elegant Boutique Resort",
-		"id": "008",
+		"id": 8,
 		"segment_name": "Resort",
 		"description": "Embark on a journey of luxury and relaxation at our elegant boutique resort in Bali, Indonesia. Situated on a pristine stretch of coastline, our resort offers unrivaled views of the azure waters and lush tropical landscapes. Each spacious suite is meticulously designed to evoke a sense of serenity and sophistication, while world-class amenities such as a spa, poolside cabanas, and private beach access ensure a truly indulgent experience. Whether you're seeking romance or adventure, our resort promises a memorable stay in paradise.",
 		"price": "$1,000,000",
@@ -98,7 +98,7 @@
 	{
 		"image": "https://i.ibb.co/4ZjNtX3/hotel9.jpg",
 		"estate_title": "Historic Bed and Breakfast",
-		"id": "009",
+		"id": 9,
 		"segment_name": "Guesthouse",
 		"description": "Step back in time at our historic bed and breakfast in Charleston, South Carolina, where Southern charm meets timeless elegance. Housed within a beautifully restored mansion, our inn offers a glimpse into the city's rich heritage and hospitality. Each room is adorned with antique furnishings and modern comforts, while our garden courtyard provides a tranquil oasis in the heart of the city. Wake up to the aroma of freshly brewed coffee and enjoy a sumptuous breakfast before exploring the cobblestone streets and historic landmarks of Charleston. Whether you're a history buff or a romantic at heart, our bed and breakfast offers a truly enchanting escape.",
 		"price": "$300/night",
