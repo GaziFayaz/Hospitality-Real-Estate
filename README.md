@@ -1,6 +1,6 @@
 # HotelHive
 
-[Live Site](https://www.hotelsiteplaceholder.com)
+[Live Site](https://b9a9-real-estate-a0416.web.app)
 
 ## Features and Characteristics
 
