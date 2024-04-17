@@ -1,20 +1,25 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import { FaGithubAlt, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
-import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
 	const successToast = (message) =>
 		toast.success(message, { position: "bottom-right" });
 	const errorToast = (message) =>
 		toast.error(message, { position: "bottom-right" });
-	const { user, loading, setLoading, signInEmailPassword, signInGoogle } =
-		useContext(AuthContext);
+	const {
+		user,
+		loading,
+		setLoading,
+		signInEmailPassword,
+		signInGoogle,
+		signInGithub,
+	} = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -41,7 +46,7 @@ const Login = () => {
 
 	const loginUsingGoogle = () => {
 		signInGoogle()
-			.then((result) => {
+			.then(() => {
 				// // This gives you a Google Access Token. You can use it to access the Google API.
 				// const credential = GoogleAuthProvider.credentialFromResult(result);
 				// const token = credential.accessToken;
@@ -60,7 +65,25 @@ const Login = () => {
 				// // The AuthCredential type that was used.
 				// const credential = GoogleAuthProvider.credentialFromError(error);
 				// // ...
-				errorToast("Login Failed");
+				setLoading(false);
+
+				if (error.code === "auth/account-exists-with-different-credential") {
+					errorToast("Email is already in use");
+				}
+			});
+	};
+
+	const loginUsingGithub = () => {
+		signInGithub()
+			.then(() => {
+				successToast("Login Successful");
+			})
+			.catch((error) => {
+				console.log(error);
+				setLoading(false);
+				if (error.code === "auth/account-exists-with-different-credential") {
+					errorToast("Email is already in use");
+				}
 			});
 	};
 
@@ -133,8 +156,14 @@ const Login = () => {
 					/>
 					<p className="text-white font-semibold">Or Sign In using</p>
 					<div className="flex gap-8">
-						<FaGoogle onClick={() => loginUsingGoogle()} className="text-3xl text-white cursor-pointer hover:text-black" />
-						<FaFacebookF className="text-3xl text-white" />
+						<FaGoogle
+							onClick={() => loginUsingGoogle()}
+							className="text-3xl text-white cursor-pointer hover:text-black"
+						/>
+						<FaGithubAlt
+							onClick={() => loginUsingGithub()}
+							className="text-4xl text-white cursor-pointer hover:text-black"
+						/>
 					</div>
 					<p className="text-white w-full text-right mt-4">
 						New here?{" "}
