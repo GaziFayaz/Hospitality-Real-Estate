@@ -1,9 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const UpdateProfile = () => {
+	useEffect(() => {
+		AOS.init();
+		AOS.refresh();
+	}, []);
 	const { user, customizeProfile } = useContext(AuthContext);
 
 	const {
@@ -34,9 +40,10 @@ const UpdateProfile = () => {
 	return (
 		<div className="flex-1 flex items-center">
 			<Helmet>
-					<title>Hotel Hive | Update Profile</title>
-				</Helmet>
+				<title>Hotel Hive | Update Profile</title>
+			</Helmet>
 			<form
+				data-aos="fade-down"
 				onSubmit={handleSubmit(onSubmit)}
 				action=""
 				className="mx-auto flex flex-col gap-4 w-full md:w-[500px] lg:min-w-[550px] lg:w-[2/3] items-center py-8 md:py-12 px-4 md:px-12 bg-[#5356FF] rounded-2xl md:rounded-3xl"
@@ -82,7 +89,7 @@ const UpdateProfile = () => {
 					type="submit"
 					value={"Update Profile"}
 					disabled={!isDirty}
-					className= {`btn w-full text-xl border-none bg-[#67C6E3] text-white disabled:opacity-100 disabled:cursor-not-allowed`}
+					className={`btn w-full text-xl border-none bg-[#67C6E3] text-white disabled:opacity-100 disabled:cursor-not-allowed`}
 				/>
 			</form>
 		</div>

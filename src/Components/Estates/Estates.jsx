@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdSpaceDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Estates = () => {
+	useEffect(() => {
+		AOS.init();
+		AOS.refresh();
+	}, []);
 	const [estates, setEstates] = useState([]);
 	useEffect(() => {
 		fetch("estates.json")
@@ -23,6 +29,7 @@ const Estates = () => {
 					console.log(estate);
 					return (
 						<div
+							data-aos="zoom-in"
 							className="card card-compact bg-base-100 shadow-xl w-full"
 							key={estate.id}
 						>

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGithubAlt, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -6,8 +6,14 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Login = () => {
+	useEffect(() => {
+		AOS.init();
+		AOS.refresh();
+	}, []);
 	const successToast = (message) =>
 		toast.success(message, { position: "bottom-right" });
 	const errorToast = (message) =>
@@ -105,6 +111,7 @@ const Login = () => {
 					<title>Hotel Hive | Login</title>
 				</Helmet>
 				<form
+					data-aos="fade-down"
 					onSubmit={handleSubmit(onSubmit)}
 					action=""
 					className="mx-auto flex flex-col gap-4 w-full md:w-[500px] lg:min-w-[550px] lg:w-[2/3] items-center py-8 md:py-12 px-4 md:px-12 bg-[#5356FF] rounded-2xl md:rounded-3xl"

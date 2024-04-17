@@ -3,7 +3,14 @@ import { FaLocationDot } from "react-icons/fa6";
 import { ImDiamonds } from "react-icons/im";
 import { MdSpaceDashboard } from "react-icons/md";
 import { useParams, useLoaderData } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const EstateDetails = () => {
+	useEffect(() => {
+		AOS.init();
+		AOS.refresh();
+	}, []);
 	const { id } = useParams();
 	const estate = useLoaderData().find((estate) => estate.id === id);
 	return (
@@ -13,11 +20,12 @@ const EstateDetails = () => {
 			</Helmet>
 			<div className="rounded-3xl flex flex-col lg:flex-row justify-between w-full gap-4 lg:gap-0">
 				<img
+					data-aos="fade-right"
 					src={estate.image}
 					alt=""
 					className=" object-cover rounded-lg lg:rounded-3xl lg:w-1/2"
 				/>
-				<div className="lg:ml-10 flex flex-col lg:w-1/2">
+				<div data-aos="fade-left" className="lg:ml-10 flex flex-col lg:w-1/2">
 					<div className="flex flex-col lg:flex-row gap-2 lg:gap-4 lg:items-center">
 						<h1 className="text-2xl lg:text-4xl font-semibold">
 							{estate.estate_title}
