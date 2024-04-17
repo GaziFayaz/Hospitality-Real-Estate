@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import shortListEstate from "../../utilities/shortListEstate";
 const EstateDetails = () => {
+	// const 
 	const shortlistKey = "shortlistedEstates";
 	useEffect(() => {
 		AOS.init();

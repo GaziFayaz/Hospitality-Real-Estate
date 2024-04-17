@@ -77,7 +77,7 @@ const ShortlistEstates = () => {
 											</span>
 										</p>
 										<div className="card-actions justify-end">
-											<Link to={`estate/${estate.id}`}>
+											<Link to={`../estate/${estate.id}`}>
 												<button className="btn bg-[#5356FF] text-white">
 													See Details
 												</button>
