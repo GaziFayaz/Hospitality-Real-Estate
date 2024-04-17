@@ -23,7 +23,6 @@ const ShortlistEstates = () => {
 				<title>Hotel Hive | Shortlist Estates</title>
 			</Helmet>
 			<h1 className="text-7xl font-bold text-[#5356FF]">Shortlisted Estates</h1>
-      <p>{shortlistedEstatesId}</p>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-14">
 				{estates.map((estate) => {
 					// console.log(estate);
