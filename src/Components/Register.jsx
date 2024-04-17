@@ -11,7 +11,7 @@ const Register = () => {
 		toast.success(message, { position: "bottom-right" });
 	const errorToast = (message) =>
 		toast.error(message, { position: "bottom-right" });
-	const { loading, createUserEmailPassword, customizeProfile } =
+	const { loading, setLoading, createUserEmailPassword, customizeProfile } =
 		useContext(AuthContext);
 	const navigate = useNavigate();
 	const [showPassword, setShowPassword] = useState(false);
@@ -61,6 +61,10 @@ const Register = () => {
 			})
 			.catch((error) => {
 				console.log(error);
+				setLoading(false);
+				if(error.code === "auth/email-already-in-use"){
+					errorToast("Email is already in use");
+				}
 			});
 	};
 

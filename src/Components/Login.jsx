@@ -6,31 +6,21 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
 	const successToast = (message) =>
 		toast.success(message, { position: "bottom-right" });
 	const errorToast = (message) =>
 		toast.error(message, { position: "bottom-right" });
-	const { user, loading, setLoading, signInEmailPassword } =
+	const { user, loading, setLoading, signInEmailPassword, signInGoogle } =
 		useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
 
 	const [showPassword, setShowPassword] = useState(false);
 
-	const { register, handleSubmit, watch } = useForm();
-
-	if (loading) {
-		return (
-			<div className="flex justify-center ">
-				<Helmet>
-					<title>Hotel Hive | Login</title>
-				</Helmet>
-				<span className="loading loading-spinner loading-lg text-[#5356FF] "></span>
-			</div>
-		);
-	}
+	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
 		console.log(data);
@@ -45,11 +35,45 @@ const Login = () => {
 				if (error.code === "auth/invalid-credential") {
 					errorToast("Invalid email or password");
 				}
-				console.log(error.code);
+				console.log(error);
 			});
 	};
 
-	console.log(watch("email")); // watch input value by passing the name of it
+	const loginUsingGoogle = () => {
+		signInGoogle()
+			.then((result) => {
+				// // This gives you a Google Access Token. You can use it to access the Google API.
+				// const credential = GoogleAuthProvider.credentialFromResult(result);
+				// const token = credential.accessToken;
+				// // The signed-in user info.
+				// const user = result.user;
+				// // IdP data available using getAdditionalUserInfo(result)
+				// // ...
+				successToast("Login Successful");
+			})
+			.catch((error) => {
+				// // Handle Errors here.
+				// const errorCode = error.code;
+				// const errorMessage = error.message;
+				// // The email of the user's account used.
+				// const email = error.customData.email;
+				// // The AuthCredential type that was used.
+				// const credential = GoogleAuthProvider.credentialFromError(error);
+				// // ...
+				errorToast("Login Failed");
+			});
+	};
+
+	if (loading) {
+		return (
+			<div className="flex justify-center ">
+				<Helmet>
+					<title>Hotel Hive | Login</title>
+				</Helmet>
+				<span className="loading loading-spinner loading-lg text-[#5356FF] "></span>
+			</div>
+		);
+	}
 
 	if (!user) {
 		return (
@@ -109,7 +133,7 @@ const Login = () => {
 					/>
 					<p className="text-white font-semibold">Or Sign In using</p>
 					<div className="flex gap-8">
-						<FaGoogle className="text-3xl text-white" />
+						<FaGoogle onClick={() => loginUsingGoogle()} className="text-3xl text-white cursor-pointer hover:text-black" />
 						<FaFacebookF className="text-3xl text-white" />
 					</div>
 					<p className="text-white w-full text-right mt-4">
