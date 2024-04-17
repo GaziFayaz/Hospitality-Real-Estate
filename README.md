@@ -19,4 +19,4 @@
 
 1. [Swiper Slider](https://swiperjs.com/)
 2. [React Hook Form](https://react-hook-form.com/)
-3. [Animate.css](https://animate.style/)
+3. [AOS](https://www.npmjs.com/package/aos)
