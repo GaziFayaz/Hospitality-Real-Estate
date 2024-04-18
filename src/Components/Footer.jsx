@@ -3,10 +3,10 @@
 /* eslint-disable react/no-unescaped-entities */
 const Footer = () => {
 	return (
-		<footer className="mt-8 md:mt-12 lg:mt-24 footer p-10 bg-[#67C6E3] border-t-slate-950 border-2 text-base-content md:px-12 lg:px-24">
-			<form>
+		<footer className="mt-8 md:mt-12 lg:mt-24 footer md:p-10 bg-[#67C6E3] border-t-slate-950 border-2 text-base-content md:px-12 lg:px-24 w-full">
+			<form className="w-full">
 				<h6 className="footer-title">About Us</h6>
-				<p className="w-80 text-justify">
+				<p className="lg:w-80 text-justify">
 					From lavish resorts to charming boutiques, we're here to make your
 					dream getaway a reality. Welcome to excellence in hospitality.
 				</p>
@@ -18,9 +18,9 @@ const Footer = () => {
 						<input
 							type="text"
 							placeholder="username@site.com"
-							className="input input-bordered join-item"
+							className="input input-bordered join-item w-1/2 md:w-auto"
 						/>
-						<button className="btn bg-[#5356FF] join-item text-[#DFF5FF]">
+						<button className="btn bg-[#5356FF] join-item text-[#DFF5FF] p-0 tex">
 							Subscribe
 						</button>
 					</div>
