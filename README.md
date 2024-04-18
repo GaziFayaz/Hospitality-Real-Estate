@@ -1,10 +1,11 @@
 # HotelHive
+Hotels, Motels, Resorts, Vacation Rentals, Lodges, and Guesthouses for **Sale** and **Rent**.
 
 ## [Live Site Link](https://b9a9-real-estate-a0416.web.app)
 
 ## Features and Characteristics
 
-- **Hospitality Real Estate Marketplace**: Buy and rent hotels, motels, resorts, vacation rentals, lodges, and guesthouses.
+
 - **Preview Cards**: View available real estates with previews in card form.
 - **Detailed View**: Access detailed information about each real estate via a private route.
 - **Shortlisting**: Multiple users can Shortlist their favorite real estates and access them in a private "Shortlist" route.
